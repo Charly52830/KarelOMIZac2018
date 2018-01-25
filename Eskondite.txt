@@ -1,0 +1,52 @@
+//https://omegaup.com/arena/problem/OMIPS-2017-Eskondite#problems
+class program {
+define verifica()
+{
+	turnleft();
+	move();
+	turnright();
+	while(frontIsClear)
+    		move();
+	if(rightIsBlocked)
+    		turnoff();
+   	else
+    		{
+	        backturn();
+        	while(leftIsBlocked)
+        		move();
+	        turnleft();
+        	move();
+        	turnleft();
+	        }
+}
+define backturn()
+{
+	turnleft();
+	turnleft();
+}
+define turnright()
+{
+	turnleft();
+	turnleft();
+	turnleft();
+}
+	program () {
+        	move();
+        	turnright();
+        	while(frontIsClear)
+        		move();
+        	backturn();
+        	while(frontIsClear)
+        		{
+			if(leftIsClear)
+        	    		{
+        	        	verifica();
+        	        	if(frontIsClear)
+        	        		move();
+		                }
+        		else
+        	    		move();
+     		       }
+		turnoff();
+	}
+}

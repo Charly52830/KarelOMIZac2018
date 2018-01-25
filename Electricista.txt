@@ -1,0 +1,44 @@
+//https://omegaup.com/arena/problem/OMIPS-2016-Electricista#problems
+class program {
+define backturn()
+{
+	turnleft();
+	turnleft();
+}
+	program () {
+        	while(rightIsClear)
+			{
+			while(frontIsClear)
+				{
+        	        	if(nextToABeeper)
+        	        		pickbeeper();
+		                else
+        		        	putbeeper();
+			        move();
+				}
+			if(nextToABeeper)
+        	    		pickbeeper();
+			else
+        	    		putbeeper();
+			backturn();
+			while(frontIsClear)
+				move();
+			turnleft();
+			move();
+			turnleft();
+			}
+		while(frontIsClear)
+			{
+			if(nextToABeeper)
+				pickbeeper();
+			else
+				putbeeper();
+        		move();
+        		}
+		if(nextToABeeper)
+        		pickbeeper();
+		else
+        		putbeeper();
+        	turnoff();
+	}
+}

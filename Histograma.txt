@@ -1,0 +1,60 @@
+//https://omegaup.com/arena/problem/OMIPS-2017-Histograma#problems
+class program {
+define backturn()
+{
+	turnleft();
+	turnleft();
+}
+
+define napadas(n)
+{
+	if(nextToABeeper)
+    		{
+	        pickbeeper();
+        	napadas(succ(n));
+        	}
+	else 
+    		{
+        	if(frontIsClear)
+        		{
+	    		move();
+			napadas(0);
+			}
+	        else
+        		{
+        		backturn();
+		        while(frontIsClear)
+        		move();
+			backturn();
+			}
+	        if(!iszero(n))
+			{
+			iterate(pred(n))
+			move();
+			turnleft();
+			while(nextToABeeper)
+        	    		move();
+			putbeeper();
+        		turnleft();
+        		while(frontIsClear)
+        		    	move();
+        		turnleft();
+			while(frontIsClear)
+        	    		move();
+		        turnleft();
+			}
+		}
+}
+
+define turnright()
+{
+	turnleft();
+	turnleft();
+	turnleft();
+}
+	program () {
+        	turnright();
+        	napadas(0);
+		turnoff();
+	}
+}

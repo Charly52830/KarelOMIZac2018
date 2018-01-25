@@ -1,0 +1,44 @@
+//https://omegaup.com/arena/problem/OMIPS-2017-Bandidos#problems
+class program {
+define backturn()
+{
+	turnleft();
+	turnleft();
+}
+define napadillas(n)
+{
+	if(nextToABeeper && !iszero(n))
+    		{
+	        pickbeeper();
+        	napadillas(pred(n));
+		}
+	else if(nextToABeeper && iszero(n))
+    		{
+	        backturn();
+        	move();
+        	}
+	else if(notNextToABeeper && frontIsClear)
+    		{
+    		move();
+        	napadillas(n);
+        	}
+}
+define napadas(n)
+{
+	if(anyBeepersInBeeperBag)
+		{
+	        putbeeper();
+    		napadas(succ(n));
+        	}
+	else
+    		{
+        	iterate(n)
+        		pickbeeper();
+	        napadillas(n);
+        	}
+}
+	program () {
+		napadas(0);
+	        turnoff();
+	}
+}

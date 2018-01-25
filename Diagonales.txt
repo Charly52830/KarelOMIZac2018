@@ -1,0 +1,74 @@
+//https://omegaup.com/arena/problem/OMIPS-2017-Diagonales#problems
+class program {
+define turnright()
+{
+	turnleft();
+	turnleft();
+	turnleft();
+}
+	program () {
+        	while(frontIsClear && rightIsClear)
+        		{
+			if(notNextToABeeper)
+				putbeeper();
+			move();
+			turnright();
+			move();
+			turnleft();
+			}
+		if(notNextToABeeper)
+        		putbeeper();
+	        while(frontIsClear)
+        		move();
+	        turnleft();
+        	while(frontIsClear)
+        		move();
+	        turnleft();
+        	while(frontIsClear && leftIsClear)
+        		{
+			if(notNextToABeeper)
+        	    		putbeeper();
+			move();
+            		turnleft();
+		        move();
+		        turnright();
+		        }
+	        if(notNextToABeeper)
+        		putbeeper();
+	        while(frontIsClear)
+        		move();
+	        turnleft();
+        	while(frontIsClear)
+        		move();
+        	turnleft();
+        	while(leftIsClear && frontIsClear)
+        		{
+		        if(notNextToABeeper)
+        		    	putbeeper();
+		        move();
+        		turnleft();
+		        move();
+		        turnright();
+		        }
+        	if(notNextToABeeper)
+        		putbeeper();
+	        while(frontIsClear)
+        		move();
+	        turnright();
+        	while(frontIsClear)
+        		move();
+	        turnright();
+        	while(frontIsClear && rightIsClear)
+        		{
+		        if(notNextToABeeper)
+	            	putbeeper();
+		        move();
+        	 	turnright();
+	        	move();	
+			turnleft();
+			}
+	        if(notNextToABeeper)
+	        	putbeeper();
+		turnoff();
+	}
+}

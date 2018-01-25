@@ -1,0 +1,38 @@
+//https://omegaup.com/arena/problem/OMIPS-2017-Gallo-Gallina#problems
+class program {
+define turnright()
+{
+	turnleft();
+	turnleft();
+	turnleft();
+}
+define gallina()
+{
+	if(nextToABeeper)
+    		turnoff();
+	if(frontIsClear)
+    		move();
+	else
+    		turnleft();
+	gallo();
+}
+define gallo()
+{
+	if(nextToABeeper)
+    		turnoff();
+	if(frontIsClear)
+		{
+		move();
+		gallina();
+		}
+	else
+		{
+        	turnright();
+	        gallo();
+        	}
+}
+	program () {
+		gallo();
+	        turnoff();
+	}
+}

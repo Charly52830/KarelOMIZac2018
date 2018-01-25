@@ -1,37 +1,38 @@
+//https://omegaup.com/arena/problem/OMIPS-2017-N-x-M#problems
 class program {
 define turnright()
 {
 	turnleft();
-    turnleft();
-    turnleft();
+	turnleft();
+	turnleft();
 }
 define backturn()
 {
 	turnleft();
-    turnleft();
+	turnleft();
 }
 define napadas(n)
 {
 	iterate(n)
-    	putbeeper();
-    if(frontIsClear)
-    	{
-        move();
-        napadas(succ(n));
-        }
-    else if(leftIsClear)
-    	{
-        backturn();
-        while(frontIsClear)
-        	move();
-        turnright();
-        move();
-        turnright();
-        napadas(succ(n));
-        }
+    		putbeeper();
+	if(frontIsClear)
+    		{
+	        move();
+        	napadas(succ(n));
+        	}
+	else if(leftIsClear)
+    		{
+	        backturn();
+        	while(frontIsClear)
+        		move();
+	        turnright();
+	        move();
+	        turnright();
+	        napadas(succ(n));
+	        }
 }
-    program () {
-        napadas(1);
-        turnoff();
-    }
+	program () {
+        	napadas(1);
+		turnoff();
+	}
 }
