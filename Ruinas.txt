@@ -19,20 +19,13 @@ define napadas(n)
         turnleft();
         iterate(n)
         	{
-            while(nextToABeeper)
-            	pickbeeper();
-            putbeeper();
-            putbeeper();
+            if(notNextToABeeper)
+            	{
+                putbeeper();
+                putbeeper();
+                }
             move();
             }
-        while(frontIsClear)
-        	{
-            while(nextToABeeper)
-            	pickbeeper();
-            move();
-            }
-        while(nextToABeeper)
-        	pickbeeper();
         backturn();
         while(frontIsClear)
         	move();
@@ -44,19 +37,10 @@ define napadas(n)
         turnleft();
         iterate(n)
         	{
-            while(nextToABeeper)
-            	pickbeeper();
-            putbeeper();
+            if(notNextToABeeper)
+            	putbeeper();
             move();
             }
-        while(frontIsClear)
-        	{
-            while(nextToABeeper)
-            	pickbeeper();
-            move();
-            }
-        while(nextToABeeper)
-        	pickbeeper();
         backturn();
         while(frontIsClear)
         	move();
@@ -66,19 +50,10 @@ define napadas(n)
         turnleft();
         iterate(n)
         	{
-            while(nextToABeeper)
-            	pickbeeper();
-            putbeeper();
+            if(notNextToABeeper)
+            	putbeeper();
             move();
             }
-        while(frontIsClear)
-        	{
-            while(nextToABeeper)
-            	pickbeeper();
-            move();
-            }
-        while(nextToABeeper)
-        	pickbeeper();
         backturn();
         while(frontIsClear)
         	move();
@@ -93,3 +68,4 @@ define napadas(n)
         turnoff();
     }
 }
+
