@@ -1,0 +1,106 @@
+class program {
+define turnright()
+{
+	turnleft();
+    turnleft();
+    turnleft();
+}
+define backturn()
+{
+	turnleft();
+    turnleft();
+}
+define verifica()
+{
+	move();
+    if(nextToABeeper)
+    	{
+        backturn();
+        move();
+        while(notFacingSouth)
+        	turnleft();
+        }
+    else
+    	{
+        backturn();
+        move();
+        while(notFacingNorth)
+        	turnleft();
+        }
+}
+define napadas(n)
+{
+	verifica();
+    if(facingNorth)
+    	{
+    	iterate(n)
+    		turnleft();
+        move();
+        if(facingNorth)
+        	napadas(0);
+        else if(facingWest)
+        	napadas(1);
+        else if(facingSouth)
+        	napadas(2);
+        else
+        	napadas(3);
+        }
+    else
+    	{
+        backturn();
+        iterate(n)
+        	turnleft();
+        turnleft();
+        verifica();
+        if(facingNorth)
+        	{
+            iterate(n)
+            	turnleft();
+            turnleft();
+            move();
+            if(facingNorth)
+        		napadas(0);
+        	else if(facingWest)
+        		napadas(1);
+        	else if(facingSouth)
+        		napadas(2);
+        	else
+        		napadas(3);
+            }
+        else
+        	{
+            backturn();
+            iterate(n)
+            	turnleft();
+            turnright();
+            verifica();
+            if(facingNorth)
+            	{
+                iterate(n)
+                	turnleft();
+                turnright();
+                move();
+                if(facingNorth)
+        			napadas(0);
+        		else if(facingWest)
+        			napadas(1);
+        		else if(facingSouth)
+        			napadas(2);
+        		else
+        			napadas(3);
+                }
+            }
+        }
+}
+    program () {
+        if(facingNorth)
+        	napadas(0);
+        else if(facingWest)
+        	napadas(1);
+        else if(facingSouth)
+        	napadas(2);
+        else
+        	napadas(3);
+        turnoff();
+    }
+}

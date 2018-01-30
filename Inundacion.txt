@@ -1,0 +1,87 @@
+class program {
+define llena()
+{
+	while(frontIsClear)
+    	{
+        if(nextToABeeper)
+        	pickbeeper();
+        putbeeper();
+        move();
+        }
+    if(nextToABeeper)
+    	pickbeeper();
+    putbeeper();
+}
+define encuentra()
+{
+	while(frontIsClear && rightIsBlocked)
+    	move();
+}
+define turnright()
+{
+	turnleft();
+    turnleft();
+    turnleft();
+}
+define backturn()
+{
+	turnleft();
+    turnleft();
+}
+    program () {
+        while(notFacingNorth)
+        	turnleft();
+        while(frontIsClear)
+        	move();
+        turnleft();
+        while(frontIsClear)
+        	move();
+        turnleft();
+        while(frontIsClear)
+        	move();
+        turnleft();
+        while(frontIsClear)
+        	{
+            putbeeper();
+            move();
+            }
+        putbeeper();
+        turnleft();
+        while(frontIsClear)
+        move();
+        turnright();
+        while(frontIsClear)
+        	move();
+        turnright();
+        while(frontIsClear)
+            	move();
+        turnright();
+        llena();
+        turnright();
+        while(frontIsClear)
+	        move();
+        backturn();
+        while(notNextToABeeper)
+        	move();
+        turnright();
+        while(frontIsClear)
+        	move();
+        backturn();
+        
+        while(frontIsClear || rightIsClear)
+        	{
+            encuentra();
+            if(rightIsBlocked)
+            	turnoff();
+            turnright();
+            move();
+            turnleft();
+            llena();
+            backturn();
+            while(frontIsClear)
+            	move();
+            backturn();
+            }
+        turnoff();
+    }
+}

@@ -1,0 +1,95 @@
+class program {
+define backturn()
+{
+	turnleft();
+    turnleft();
+}
+define turnright()
+{
+	turnleft();
+    turnleft();
+    turnleft();
+}
+define napadas(n)
+{
+	pickbeeper();
+    if(nextToABeeper)
+    	{
+        pickbeeper();
+        turnleft();
+        iterate(n)
+        	{
+            while(nextToABeeper)
+            	pickbeeper();
+            putbeeper();
+            putbeeper();
+            move();
+            }
+        while(frontIsClear)
+        	{
+            while(nextToABeeper)
+            	pickbeeper();
+            move();
+            }
+        while(nextToABeeper)
+        	pickbeeper();
+        backturn();
+        while(frontIsClear)
+        	move();
+        turnleft();
+        move();
+        }
+    else
+    	{
+        turnleft();
+        iterate(n)
+        	{
+            while(nextToABeeper)
+            	pickbeeper();
+            putbeeper();
+            move();
+            }
+        while(frontIsClear)
+        	{
+            while(nextToABeeper)
+            	pickbeeper();
+            move();
+            }
+        while(nextToABeeper)
+        	pickbeeper();
+        backturn();
+        while(frontIsClear)
+        	move();
+        turnleft();
+        move();
+        napadas(succ(n));
+        turnleft();
+        iterate(n)
+        	{
+            while(nextToABeeper)
+            	pickbeeper();
+            putbeeper();
+            move();
+            }
+        while(frontIsClear)
+        	{
+            while(nextToABeeper)
+            	pickbeeper();
+            move();
+            }
+        while(nextToABeeper)
+        	pickbeeper();
+        backturn();
+        while(frontIsClear)
+        	move();
+            turnleft();
+        if(frontIsClear)
+        	move();
+        }
+}
+    program () {
+    	turnright();
+        napadas(1);
+        turnoff();
+    }
+}
