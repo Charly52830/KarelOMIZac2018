@@ -1,0 +1,229 @@
+//https://omegaup.com/arena/problem/Kiokonda#problems
+class program {
+define napadotas()
+{
+if(nextToABeeper)
+	{
+    pickbeeper();
+    pickbeeper();
+    if(nextToABeeper)
+    	{
+        pickbeeper();
+        if(nextToABeeper)
+        	{
+            pickbeeper();
+            if(nextToABeeper)
+            	{
+                pickbeeper();
+                while(notFacingEast)
+                	turnleft();
+                move();
+                napadotas();
+                iterate(5)
+                	putbeeper();
+                move();
+                }
+            else
+            	{
+                while(notFacingNorth)
+                	turnleft();
+                move();
+                napadotas();
+                iterate(4)
+                	putbeeper();
+                move();
+                }
+            }
+        else
+        	{
+            while(notFacingWest)
+            	turnleft();
+            move();
+            napadotas();
+            iterate(3)
+            	putbeeper();
+            move();
+            }
+        }
+    else
+    	{
+        while(notFacingSouth)
+        	turnleft();
+        move();
+        napadotas();
+        iterate(2)
+        	putbeeper();
+        move();
+        }
+    }
+else
+	{
+    move();
+    turnleft();
+    }
+}
+define backturn()
+{
+turnleft();
+turnleft();
+}
+define napadillas()
+{
+if(facingNorth)
+	{
+	iterate(2)
+    	putbeeper();
+    }
+else if(facingEast)
+	{
+    iterate(3)
+    	putbeeper();
+    }
+else if(facingSouth)
+	{
+    iterate(4)
+    	putbeeper();
+    }
+else
+	iterate(5)
+    	putbeeper();
+napadotas();
+turnoff();
+}
+define napadas()
+{
+if(nextToABeeper)
+	{
+    pickbeeper();
+    if(nextToABeeper)
+    	{
+    	putbeeper();
+        backturn();
+        move();
+        }
+    else
+    	napadillas();
+    }
+else if(facingNorth)
+	{
+    iterate(2)
+    	putbeeper();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingWest)
+    	turnleft();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingEast)
+    	turnleft();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingSouth)
+    	turnleft();
+    iterate(2)
+    	pickbeeper();
+    move();
+    }
+else if(facingEast)
+	{
+    iterate(3)
+    	putbeeper();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingNorth)
+    	turnleft();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingSouth)
+    	turnleft();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingWest)
+    	turnleft();
+    iterate(3)
+    	pickbeeper();
+    move();
+    }
+else if(facingSouth)
+	{
+    iterate(4)
+    	putbeeper();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingWest)
+    	turnleft();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingEast)
+    	turnleft();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingNorth)
+    	turnleft();
+    iterate(4)
+    	pickbeeper();
+    move();
+    }
+else
+	{
+    iterate(5)
+    	putbeeper();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingNorth)
+    	turnleft();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingSouth)
+    	turnleft();
+    if(frontIsClear)
+    	{
+        move();
+        napadas();
+        }
+    while(notFacingWest)
+    	turnleft();
+    iterate(5)
+    	pickbeeper();
+    move();
+    }
+}
+    program () {
+    	move();
+        napadas();
+        turnoff();
+    }
+}
