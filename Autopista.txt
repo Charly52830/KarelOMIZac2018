@@ -1,0 +1,57 @@
+class program {
+define turnright()
+{
+turnleft();
+turnleft();
+turnleft();
+}
+define napadillas()
+{
+        napadas();
+        putbeeper();
+        while(frontIsClear)
+        	move();
+        backturn();
+        while(rightIsBlocked && frontIsClear)
+        	move();
+        if(rightIsClear)
+        	{
+            turnright();
+            move();
+            turnright();
+            while(frontIsClear)
+            	move();
+            backturn();
+            napadillas();
+            }
+    
+}
+define backturn()
+{
+turnleft();
+turnleft();
+}
+define napadas()
+{
+	if(frontIsClear)
+    	{
+        move();
+        move();
+        napadas();
+        move();
+        }
+    else
+    	backturn();
+}
+
+
+    program () {
+        while(notFacingWest)
+        	turnleft();
+        while(frontIsClear)
+        	move();
+        backturn();
+        napadillas();
+        turnoff();
+    }
+}
