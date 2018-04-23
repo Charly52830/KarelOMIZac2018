@@ -1,0 +1,41 @@
+class program {
+define turnright() {
+	turnleft();
+    turnleft();
+    turnleft();
+}
+define backturn() {
+	turnleft();
+    turnleft();
+}
+
+define napadas(n) {
+	if(nextToABeeper) {
+    	backturn();
+        move();
+        move();
+        iterate(n)
+        	putbeeper();
+    }
+    else {
+    	if(rightIsBlocked) {
+        	putbeeper();
+            move();
+            napadas(succ(n));
+        }
+        else {
+        	turnright();
+            move();
+            napadas(n);
+        }
+    }
+}
+    program () {
+        while(notFacingNorth)
+        	turnleft();
+        move();
+        move();
+        napadas(0);
+        turnoff();
+    }
+}
