@@ -1,0 +1,60 @@
+class program {
+define napadillas() {
+	if(nextToABeeper) {
+    	backturn();
+        while(frontIsClear)
+        	move();
+        backturn();
+        napadas();
+        putbeeper();
+    }
+    else if(frontIsClear) {
+    	move();
+        napadillas();
+    }
+    else {
+    	turnright();
+        move();
+        turnleft();  
+    }
+}
+define turnright() {
+	turnleft();
+    turnleft();
+    turnleft();
+}
+define backturn() {
+	turnleft();
+    turnleft();
+}
+define napadas() {
+	if(frontIsClear) {
+    	move();
+        napadas();
+        putbeeper();
+        move();
+    }
+    else {
+    	backturn();
+        while(frontIsClear)
+        	move();
+        turnleft();
+        move();
+        turnleft();
+    }
+}
+    program () {
+    	while(frontIsClear)
+        	move();
+        turnright();
+    	napadillas();
+        while(frontIsClear) {
+        	move();
+        	turnleft();
+            move();
+            turnright();
+            napadillas();
+        }
+        turnoff();
+    }
+}

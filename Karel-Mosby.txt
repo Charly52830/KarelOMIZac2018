@@ -1,0 +1,67 @@
+class program {
+define turnright() {
+	turnleft();
+    turnleft();
+    turnleft();
+}
+define napadillas() {
+    if(nextToABeeper) {
+    	pickbeeper();
+        napadillas();
+        putbeeper();
+        move();
+    }
+    else {
+    	backturn();
+        while(frontIsClear)
+        	move();
+        backturn();
+    }
+}
+define backturn() {
+	turnleft();
+    turnleft();
+}
+define napadas(n) {
+	if(nextToABeeper) {
+    	napadillas();
+        backturn();
+        while(frontIsClear)
+        	move();
+        backturn();
+        iterate(n)
+        	move();
+    }
+    if(frontIsClear) {
+    	move();
+        napadas(succ(n));
+    }
+    else {
+    	backturn();
+        while(frontIsClear) {
+        	if(nextToABeeper) {
+        		while(nextToABeeper)
+            		pickbeeper();
+            	putbeeper();
+            }
+        	move();
+        }
+        if(nextToABeeper) {
+        	while(nextToABeeper)
+            	pickbeeper();
+            putbeeper();
+        }
+        backturn();
+    }
+}
+    program () {
+        while(rightIsClear) {
+        	napadas(0);
+            turnright();
+            move();
+            turnleft();
+        }
+        napadas(0);
+        turnoff();
+    }
+}
